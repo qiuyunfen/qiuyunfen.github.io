@@ -21,7 +21,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 app.use('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../views', 'index.html'))
+    res.sendFile(path.join(__dirname, '../index.html'))
 });
 
 app.listen(8080, () => {
