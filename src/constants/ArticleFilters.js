@@ -1,0 +1,6 @@
+export const SHOW_ALL = 'show_all'
+export const SHOW_JS = 'show_js'
+export const SHOW_HTML = 'show_html'
+export const SHOW_CSS = 'show_css'
+export const SHOW_ESS = 'show_ess'
+export const SHOW_PIC = 'show_pic'

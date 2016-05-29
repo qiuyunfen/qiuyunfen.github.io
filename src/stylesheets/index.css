@@ -1,0 +1,19 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-size: 14px;
+	font-family: Helvetica,Arial,sans-serif;;
+}
+a {
+	text-decoration: none;
+}
+.wrap{
+	display: flex;
+	width: 100%;
+	box-sizing: border-box;
+}
+.container {
+	flex-grow: 1;
+}
