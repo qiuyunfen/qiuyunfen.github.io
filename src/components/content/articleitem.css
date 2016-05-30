@@ -29,3 +29,26 @@ article h1.title {
 .entry-content p a:hover {
 	text-decoration: underline;
 }
+
+@media screen and (max-width: 640px) {
+	section{
+		padding: 0 10px;
+	}
+	article{
+		margin-top: 20px;
+	}
+	.meta{
+		overflow: hidden;
+		float: none;
+		line-height: 1em;
+	    padding-right: 10px;
+	    margin-bottom: 15px;
+	    text-align: right;
+	}
+	article h1.title {
+		color: #333;
+		font-size: 2em;
+	    line-height: 35px; 
+	    margin-bottom: 10px;
+	}
+}

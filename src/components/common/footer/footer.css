@@ -7,3 +7,9 @@ footer {
 footer a{
 	color: #2479CC;
 }
+
+@media screen and (max-width: 640px) {
+	footer{
+		font-size: 10px;
+	}
+}

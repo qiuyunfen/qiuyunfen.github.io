@@ -1,23 +1,23 @@
-var path = require('path'),
-    webpack = require('webpack'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-module.exports = {
+export default {
     entry: [
         'webpack-hot-middleware/client?reload=true',
         path.join(__dirname, '../src', 'index.js')
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: '/',
         filename: 'bundle.js',
         publicPath: '/assets/'
     },
     module: {
         loaders: [
-        	{ test: /\.(jpg|png)$/, loader: "url?limit=8192"},
-        	{ test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
-            { test: /\.css?$/, loaders: ['style', 'raw'] }
-            
+            { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
+            { test: /\.css?$/, loader: ExtractTextPlugin.extract('style', 'raw') },
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass') },
+            { test: /\.(jpg|png|gif)$/, include: /images/, loader: 'url'}
         ]
     },
     resolve: {
@@ -25,8 +25,8 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new ExtractTextPlugin('style.css', { allChunks: true }),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ]
 };

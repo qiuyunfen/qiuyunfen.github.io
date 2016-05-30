@@ -10,7 +10,7 @@ class App extends Component {
     render() {
     const { articles, actions }  = this.props
     return (
-      <div className="wrap">
+      <div>
         <Section articles={articles} actions={actions}/>
       </div>
     )

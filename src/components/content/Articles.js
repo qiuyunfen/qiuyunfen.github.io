@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ArticleItem from './ArticleItem';
+import Footer from '../common/footer/Footer';
 import { SHOW_ALL, SHOW_JS, SHOW_HTML, SHOW_CSS, SHOW_ESS, SHOW_PIC} from '../../constants/ArticleFilters';
 
 const ARTICLE_FILTERS = {
@@ -21,11 +22,15 @@ class Articles extends Component{
 		const { articles, filter, actions } = this.props
 		const filteredArticles = articles.filter(ARTICLE_FILTERS[filter])
 		return(
-			<section>
-				{filteredArticles.map(article =>
-					<ArticleItem key={article.id} article={article} actions={actions}/>
-				)}
-			</section>
+			<div className="container"> 
+				<section >
+					{filteredArticles.map(article =>
+						<ArticleItem key={article.id} article={article} actions={actions}/>
+					)}
+					
+				</section>
+				<Footer/>
+			</div>
 		)
 
 	}

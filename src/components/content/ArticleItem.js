@@ -13,7 +13,7 @@ class ArticleItem extends Component{
 
 		const content = article.content.substring(0, 200);
 		return (
-			<article >
+			<article>
 				<div className="meta">
 					<div className="date">
 						<time>{article.date}</time>

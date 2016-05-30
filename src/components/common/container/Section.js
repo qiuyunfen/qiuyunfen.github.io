@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 
 import Aside from '../menu/Aside';
-import Footer from '../footer/Footer';
 import Articles from '../../content/Articles';
 import ArticleItem from '../../content/ArticleItem';
 import Article from '../../content/Article';
 import { SHOW_ALL, SHOW_JS, SHOW_HTML, SHOW_CSS, SHOW_ESS, SHOW_PIC} from '../../../constants/ArticleFilters';
-import './section.css';
 
 
 class Section extends Component{
@@ -38,10 +36,9 @@ class Section extends Component{
 			)
 		}
 		return(
-			<div className="container">
+			<div className="wrap">
 				<Aside filter={ filter } onShow={this.handleShow.bind(this)} actions={actions}/>
 				{element}
-				<Footer/>
 			</div>
 		)
 	}
