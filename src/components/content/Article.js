@@ -17,7 +17,7 @@ class Article extends Component {
 								<time>{article.date}</time>
 							</div>
 						</div>
-						<h1 className="title"><a href="#" onClick={ () => actions.editArticle(article.id, true)}>{article.title}</a></h1>
+						<h1 className="title"><Link to={`${article.category}/article/${article.id}`} onClick={() => actions.editArticle(article.id, true)}>{article.title}</Link></h1>
 						<div className="entry-content">
 							<p>{ article.content }</p>
 						</div>

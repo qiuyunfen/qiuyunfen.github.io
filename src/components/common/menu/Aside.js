@@ -12,18 +12,27 @@ const FILTER_TITLES = {
   [SHOW_ESS]: '随笔',
   [SHOW_PIC]: '照片',
 }
+const ROUTE_TITLES = {
+  [SHOW_ALL]: '',
+  [SHOW_JS]: 'js',
+  [SHOW_HTML]: 'html',
+  [SHOW_CSS]: 'css',
+  [SHOW_ESS]: 'ess',
+  [SHOW_PIC]: 'pic',
+}
 
 class Aside extends Component {
 
 	renderFilterLink(filter) {
 		const title = FILTER_TITLES[filter]
+		const route_title = ROUTE_TITLES[filter]
 		const { filter : selectedFilter, onShow } = this.props
 
 		return (
-			<a href="#" className={(filter === selectedFilter ? 'selected' : '')}
+			<Link to={route_title} className={(filter === selectedFilter ? 'selected' : '')}
 				onClick={() => onShow(filter)}>
 				{title}
-			</a>
+			</Link>
 		)
 	}
 
