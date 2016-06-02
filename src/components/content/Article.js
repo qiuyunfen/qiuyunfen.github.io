@@ -1,32 +1,59 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import Footer from '../common/footer/Footer';
+import * as ArticleActions from '../../actions';
 import './articleitem.css';
 
 class Article extends Component {
 	render() {
-		const { article, actions } = this.props
+		const { articles, actions, showing } = this.props
+		const articlefilter = articles.filter(article => article.id === showing);
+		const article = articlefilter[0];
 
 		return(
-			<div className="container">
-				<section>
-					<article>
-						<div className="meta">
-							<div className="date">
-								<time>{article.date}</time>
-							</div>
+			<section>
+				<article>
+					<div className="meta">
+						<div className="date">
+							<time>{article.date}</time>
 						</div>
-						<h1 className="title"><Link to={`${article.category}/article/${article.id}`} onClick={() => actions.editArticle(article.id, true)}>{article.title}</Link></h1>
-						<div className="entry-content">
-							<p>{ article.content }</p>
-						</div>
-					</article>
-				</section>
-				<Footer/>
-			</div>
+					</div>
+					<h1 className="title">{article.title}</h1>
+					<div className="entry-content">
+						{article.content.split('</br>').map(article =>
+			    		 <p key={article}>{article}</p>
+		    			)}
+					</div>
+				</article>
+			</section>
 		)
 	}
 }
 
-export default Article;
+Article.propTypes = {
+  actions: PropTypes.object.isRequired,
+  showing: PropTypes.number.isRequired,
+  articles: PropTypes.array.isRequired
+}
+
+function mapStateToProps(state) {
+  const nav = state.aside.toJS();
+  const articles = state.article;
+
+	return {
+		showing: nav.showing,
+		articles: articles
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ArticleActions, dispatch)
+  }
+}
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(Article);
+

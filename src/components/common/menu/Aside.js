@@ -26,11 +26,11 @@ class Aside extends Component {
 	renderFilterLink(filter) {
 		const title = FILTER_TITLES[filter]
 		const route_title = ROUTE_TITLES[filter]
-		const { filter : selectedFilter, onShow } = this.props
+		const { filter : selectedFilter, actions } = this.props
 
 		return (
 			<Link to={route_title} className={(filter === selectedFilter ? 'selected' : '')}
-				onClick={() => onShow(filter)}>
+				onClick={() => actions.changeFilter(filter)}>
 				{title}
 			</Link>
 		)

@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import ArticleItem from './ArticleItem';
-import Footer from '../common/footer/Footer';
+import Aside from '../common/menu/Aside';
+import * as ArticleActions from '../../actions';
 import { SHOW_ALL, SHOW_JS, SHOW_HTML, SHOW_CSS, SHOW_ESS, SHOW_PIC} from '../../constants/ArticleFilters';
 
 const ARTICLE_FILTERS = {
@@ -13,27 +16,43 @@ const ARTICLE_FILTERS = {
 	[SHOW_PIC]: article => article.category === 'pic',
 }
 
-class Articles extends Component{
-	constructor(props, context) {
-		super(props, context)
-	}
+class Articles extends Component {
+    render() {
+    const { cfilter, actions, articles }  = this.props
+    const filteredArticles = articles.filter(ARTICLE_FILTERS[cfilter])
 
-	render() {
-		const { articles, filter, actions } = this.props
-		const filteredArticles = articles.filter(ARTICLE_FILTERS[filter])
-		return(
-			<div className="container"> 
-				<section >
-					{filteredArticles.map(article =>
-						<ArticleItem key={article.id} article={article} actions={actions}/>
-					)}
-					
-				</section>
-				<Footer/>
-			</div>
-		)
-
-	}
+    return (
+      <section>
+        {filteredArticles.map(article =>
+			     <ArticleItem key={article.id} article={article} actions={actions}/>
+		    )}
+      </section>
+    )
+  }
 }
 
-export default Articles;
+Articles.propTypes = {
+  actions: PropTypes.object.isRequired,
+  cfilter: PropTypes.string.isRequired,
+  articles: PropTypes.array.isRequired
+}
+
+function mapStateToProps(state) {
+  const nav = state.aside.toJS();
+  const articles = state.article;
+
+  return {
+	 cfilter: nav.filter,
+	 articles: articles
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(ArticleActions, dispatch)
+  }
+}
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(Articles);

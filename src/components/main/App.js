@@ -3,28 +3,30 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Aside from '../common/menu/Aside';
-import Section from '../common/container/Section';
 import * as ArticleActions from '../../actions';
 
 class App extends Component {
     render() {
-    const { articles, actions }  = this.props
+    const { filter, actions }  = this.props
     return (
-      <div>
-        <Section articles={articles} actions={actions}/>
+      <div className="wrap">
+        <Aside filter={filter} actions={actions} />
+        {this.props.children}
       </div>
     )
   }
 }
 
 App.propTypes = {
-	articles: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  filter: PropTypes.string
 }
 
 function mapStateToProps(state) {
+  const nav = state.aside.toJS();
+
 	return {
-		articles: state.article
+		filter: nav.filter
 	}
 }
 

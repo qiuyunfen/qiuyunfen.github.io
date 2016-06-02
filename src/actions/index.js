@@ -1,9 +1,9 @@
 import * as types from '../constants/ActionTypes'
 
-export function editArticle(id, isShow) {
-	return { type : types.EDIT_ARTICLE, id, isShow }
+export function changeFilter(filter) {
+	return { type : types.CHANGE_FILTER, filter }
 }
 
-export function clearArticles() {
-	return { type : types.CLEAR_ARTICLES }
+export function changeShowing(id) {
+	return {type: types.CHANGE_SHOWING, id }
 }

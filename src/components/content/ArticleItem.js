@@ -10,8 +10,8 @@ class ArticleItem extends Component{
 
 	render() {
 		const { article, actions } = this.props
-
 		const content = article.content.substring(0, 200);
+		
 		return (
 			<article>
 				<div className="meta">
@@ -19,13 +19,12 @@ class ArticleItem extends Component{
 						<time>{article.date}</time>
 					</div>
 				</div>
-				<h1 className="title"><Link to={`${article.category}/article/${article.id}`} onClick={() => actions.editArticle(article.id, true)}>{article.title}</Link></h1>
-				{/*<h1 className="title"><a href="#" onClick={ () => actions.editArticle(article.id, true)}>{article.title}</a></h1>*/}
+				<h1 className="title"><Link to={`${article.category}/${article.id}`} onClick={() => actions.changeShowing(article.id)}>{article.title}</Link></h1>
 				<div className="entry-content">
 					<p>{content}
-					<span>[...]</span>
+						<span>[...]</span>
 					</p>
-					<p><Link to={`${article.category}/article/${article.id}`} onClick={() => actions.editArticle(article.id, true)}>继续阅读 »</Link></p>
+					<p><Link to={`${article.category}/${article.id}`} onClick={() => actions.changeShowing(article.id)}>继续阅读 »</Link></p>
 				</div>
 			</article>
 		)
