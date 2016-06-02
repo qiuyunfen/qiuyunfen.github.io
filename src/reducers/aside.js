@@ -6,12 +6,23 @@ const initialState = Map({
 	showing: 1
 });
 
+const ROUTE_TITLES = {
+	'': SHOW_ALL,
+	'js': SHOW_JS,
+	'html': SHOW_HTML,
+	'css': SHOW_CSS,
+	'ess': SHOW_ESS,
+	'pic': SHOW_PIC
+}
+
 export default function(state = initialState, action) {
 	switch(action.type) {
-		case 'CHANGE_FILTER': 
-			return state.set('filter', action.filter);
+		case 'CHANGE_PAGE':
+			return state.set('filter', ROUTE_TITLES[action.module])
 		case 'CHANGE_SHOWING':
 			return state.set('showing', action.id);
+		case 'CHANGE_FILTER':
+			return state.set('filter', action.filter)
 		default:
 			return state;
 	}

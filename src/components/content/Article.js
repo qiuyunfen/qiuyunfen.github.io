@@ -6,6 +6,7 @@ import * as ArticleActions from '../../actions';
 import './articleitem.css';
 
 class Article extends Component {
+	
 	render() {
 		const { articles, actions, showing } = this.props
 		const articlefilter = articles.filter(article => article.id === showing);

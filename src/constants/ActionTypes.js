@@ -1,2 +1,3 @@
 export const CHANGE_FILTER = 'CHANGE_FILTER'
 export const CHANGE_SHOWING = 'CHANGE_SHOWING'
+export const CHANGE_PAGE = 'CHANGE_PAGE'

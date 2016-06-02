@@ -118,6 +118,20 @@
 		display: inline;
 		margin-left:10px; 
 	}
+}footer {
+	padding: 1.1em 2.5em;
+	text-align: center;
+	line-height: 1.5em;
+	color: #555；
+}
+footer a{
+	color: #2479CC;
+}
+
+@media screen and (max-width: 640px) {
+	footer{
+		font-size: 10px;
+	}
 }article {
 	border-bottom: 1px solid rgba(200, 200, 200, 0.7);
 	position: relative;
@@ -170,20 +184,6 @@ article h1.title {
 		font-size: 2em;
 	    line-height: 35px; 
 	    margin-bottom: 10px;
-	}
-}footer {
-	padding: 1.1em 2.5em;
-	text-align: center;
-	line-height: 1.5em;
-	color: #555；
-}
-footer a{
-	color: #2479CC;
-}
-
-@media screen and (max-width: 640px) {
-	footer{
-		font-size: 10px;
 	}
 }*{
 	margin: 0;
