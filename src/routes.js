@@ -14,6 +14,7 @@ export default function (store) {
 
 		dispatch({ type: 'CHANGE_PAGE', module });
 	}
+
 	return (
 		<Route component={ App } path="/">
 			<Route component={ Section }>

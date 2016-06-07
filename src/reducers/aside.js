@@ -3,7 +3,6 @@ import { SHOW_ALL, SHOW_JS, SHOW_HTML, SHOW_CSS, SHOW_ESS, SHOW_PIC} from '../co
 
 const initialState = Map({
 	filter: SHOW_ALL,
-	showing: 1
 });
 
 const ROUTE_TITLES = {
@@ -19,8 +18,6 @@ export default function(state = initialState, action) {
 	switch(action.type) {
 		case 'CHANGE_PAGE':
 			return state.set('filter', ROUTE_TITLES[action.module])
-		case 'CHANGE_SHOWING':
-			return state.set('showing', action.id);
 		case 'CHANGE_FILTER':
 			return state.set('filter', action.filter)
 		default:

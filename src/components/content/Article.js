@@ -6,11 +6,16 @@ import * as ArticleActions from '../../actions';
 import './articleitem.css';
 
 class Article extends Component {
-	
+	componentDidMount() {
+		const { actions, params: { nav } } = this.props
+
+		actions.changePage(nav);
+	}
+
 	render() {
-		const { articles, actions, showing } = this.props
-		const articlefilter = articles.filter(article => article.id === showing);
-		const article = articlefilter[0];
+		const { articles, actions, params:{ id } } = this.props
+		const articlefilter = articles.filter(article => article.id == id)
+		const article = articlefilter[0]
 
 		return(
 			<section>
@@ -34,18 +39,15 @@ class Article extends Component {
 
 Article.propTypes = {
   actions: PropTypes.object.isRequired,
-  showing: PropTypes.number.isRequired,
   articles: PropTypes.array.isRequired
 }
 
 function mapStateToProps(state) {
-  const nav = state.aside.toJS();
   const articles = state.article;
 
-	return {
-		showing: nav.showing,
-		articles: articles
-	}
+  return {
+	articles: articles
+  }
 }
 
 function mapDispatchToProps(dispatch) {
