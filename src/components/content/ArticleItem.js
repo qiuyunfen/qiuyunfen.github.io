@@ -10,7 +10,6 @@ class ArticleItem extends Component{
 
 	render() {
 		const { article, actions } = this.props
-		const content = article.content.substring(0, 200);
 		
 		return (
 			<article>
@@ -21,7 +20,7 @@ class ArticleItem extends Component{
 				</div>
 				<h1 className="title"><Link to={`${article.category}/${article.id}`}>{article.title}</Link></h1>
 				<div className="entry-content">
-					<p>{content}
+					<p>{article.content.split('</br>')[0]}
 						<span>[...]</span>
 					</p>
 					<p><Link to={`${article.category}/${article.id}`}>继续阅读 »</Link></p>
