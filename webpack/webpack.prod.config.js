@@ -27,6 +27,7 @@ module.exports = {
                 exclude: /node_modules/
             },
             { test: /\.css?$/, loader: ExtractTextPlugin.extract('style', 'raw') },
+            { test: /\.scss?$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass') },
             { test: /\.(jpg|png)$/, loader: "url?limit=8192"}
         ]
     },
