@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import { SHOW_ALL, SHOW_JS, SHOW_HTML, SHOW_CSS, SHOW_ESS, SHOW_PIC} from '../../../constants/ArticleFilters';
-import './aside.css';
+import './aside.scss';
 
 const FILTER_TITLES = {
   [SHOW_ALL]: '首页',

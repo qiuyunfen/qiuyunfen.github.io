@@ -6,7 +6,7 @@ import { createHashHistory } from 'history';
 import routes from './routes';
 
 import configureStore from './store/configureStore';
-import './stylesheets/index.css';
+import './stylesheets/index.scss';
 
 const history = useRouterHistory(createHashHistory)({queryKey: false});
 const store = configureStore();

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import './articleitem.css';
+import './articleitem.scss';
 
 class ArticleItem extends Component{
 	constructor(props, context) {

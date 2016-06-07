@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as ArticleActions from '../../actions';
-import './articleitem.css';
+import './articleitem.scss';
 
 class Article extends Component {
 	componentDidMount() {

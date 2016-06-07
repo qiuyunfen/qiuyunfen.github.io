@@ -1,0 +1,66 @@
+article {
+	border-bottom: 1px solid rgba(200, 200, 200, 0.7);
+	position: relative;
+
+	h1.title{
+		font-size: 2em;
+    	font-weight: 300;
+    	line-height: 1.5em;
+
+    	a{
+    		color: #000;
+    	}
+
+    	a:hover{
+    		color: #2479CC;
+    	}
+	}
+
+	.meta{
+		color: #555;
+	    float: right;
+	    font-size: .9em;
+	    line-height: 3.6;
+	}
+
+	.entry-content p{
+		font: 1em/2em "微软雅黑";
+
+		a{
+			color: #2479CC;
+		}
+
+		a:hover{
+			text-decoration: underline;
+		}
+	}
+
+}
+
+@media screen and (max-width: 640px) {
+	section{
+		padding: 0 10px;
+
+		article{
+			margin-top: 20px;
+
+			.meta{
+				overflow: hidden;
+				float: none;
+				line-height: 1em;
+			    padding-right: 10px;
+			    margin-bottom: 15px;
+			    text-align: right;
+			}
+
+			h1.title {
+				color: #333;
+				font-size: 2em;
+			    line-height: 35px; 
+			    margin-top: 10px; 
+			    margin-bottom: 10px;
+			}
+		}
+
+	}
+}
